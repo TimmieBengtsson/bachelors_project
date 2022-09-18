@@ -4,3 +4,4 @@ adhoc_script
 .DS_Store
 __pycache__
 bsc_plots
+.pyc
