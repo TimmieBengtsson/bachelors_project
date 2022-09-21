@@ -1,5 +1,3 @@
-from cmath import nan
-from tracemalloc import start
 import pandas as pd
 from turtle import width
 import seaborn as sns
@@ -20,12 +18,13 @@ def return_plot(series1, return_period):
 
     returns = returns.rename(columns={'last_price': 'return'})
 
-    title1 = '1' + ' year rolling return:' + ' ' + series1.iloc[1, 0]
-    fig = sns.lineplot(returns, y='return', x='date', linewidth=1,
-                       legend=False, linestyle='-').set(title=title1)
+    title1 = str(return_period/52)[0:1] + ' year rolling return:' + ' ' + series1.iloc[1, 0]
+    fig, axs = plt.subplots(1,1)
+    sns.lineplot(returns, y='return', x='date', linewidth=1,
+                       legend=False, linestyle='-', ax=axs).set(title=title1)
 
     plt.legend(loc='lower left', labels=['1y rolling return'])
     plt.ylabel("")
     plt.xlabel("")
 
-    return fig
+    return fig, axs

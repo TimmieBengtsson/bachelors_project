@@ -20,9 +20,13 @@ def sigma_plot(series1, weeks):
     std_returns_series1 = std_returns_series1[std_returns_series1['date'] > '19900101']
     # px.line(std_returns_series1, x='date', y='std')
 
+    title1 = str(weeks/52)[0:1] + ' year rolling standard deviation: ' + str(series1.iloc[0]['name'])
+
     fig, axs = plt.subplots(1, 1)
-    title1 = '3 year rolling standard deviation: ' + str(series1.iloc[0]['name'])
-    sns.lineplot(std_returns_series1, x='date', y='std', legend=False, linewidth=1.5, ax=axs).set(title=title1)
+    sns.lineplot(
+        std_returns_series1, x='date', y='std', legend=False, 
+        linewidth=1.5, ax=axs
+    ).set(title=title1)
 
     plt.legend(loc='lower left', labels=['3y rolling standard deviation'])
     plt.ylabel("")
