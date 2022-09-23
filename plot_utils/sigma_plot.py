@@ -2,6 +2,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import seaborn as sns
 import numpy as np
+from textwrap import wrap
 
 sns.set_theme()
 sns.set_style("whitegrid", {'grid.linestyle': '--'})
@@ -17,8 +18,7 @@ def sigma_plot(series1, weeks):
     std_returns_series1['date'] = series1['date']
     std_returns_series1 = std_returns_series1.rename(columns={'last_price': 'std'})
     
-    std_returns_series1 = std_returns_series1[std_returns_series1['date'] > '19900101']
-    # px.line(std_returns_series1, x='date', y='std')
+    # std_returns_series1 = std_returns_series1[std_returns_series1['date'] > '20050101']
 
     title1 = str(weeks/52)[0:1] + ' year rolling standard deviation: ' + str(series1.iloc[0]['name'])
 
@@ -26,7 +26,8 @@ def sigma_plot(series1, weeks):
     sns.lineplot(
         std_returns_series1, x='date', y='std', legend=False, 
         linewidth=1.5, ax=axs
-    ).set(title=title1)
+    )
+    axs.set_title("\n".join(wrap(title1, 50)))
 
     plt.legend(loc='lower left', labels=['3y rolling standard deviation'])
     plt.ylabel("")

@@ -4,6 +4,7 @@ from turtle import width
 import plotly.express as px
 import seaborn as sns
 import matplotlib.pyplot as plt
+from textwrap import wrap
 
 # set theme and style
 sns.set_theme()
@@ -59,7 +60,9 @@ def corr_plot_seaborn(series1, series2, corr_length):
     # plot it all
     fig, axs = plt.subplots(1,1)
     sns.lineplot(corr, y='corr', x='date',
-                       linewidth=1.5, legend=False, ax=axs).set(title=title1)
+                       linewidth=1.5, legend=False, ax=axs)
+
+    axs.set_title("\n".join(wrap(title1, 50)))
 
     # add legend, remove labels and adjust y-axis
     plt.legend(loc='lower left', labels=['3y rolling correlation'])
