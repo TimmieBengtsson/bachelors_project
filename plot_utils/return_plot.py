@@ -16,6 +16,7 @@ def return_plot(series1, return_period):
     returns['date'] = series1['date']
 
     returns = returns[returns['date'] > '19920101']
+    returns = returns[returns['date'] <= '20220831']
 
     returns = returns.rename(columns={'last_price': 'return'})
 

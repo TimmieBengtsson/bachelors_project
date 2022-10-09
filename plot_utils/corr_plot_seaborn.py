@@ -62,7 +62,7 @@ def corr_plot_seaborn(series1, series2, corr_length):
     sns.lineplot(corr, y='corr', x='date',
                        linewidth=1.5, legend=False, ax=axs)
 
-    axs.set_title("\n".join(wrap(title1, 50)))
+    axs.set_title("\n".join(wrap(title1, 60)))
 
     # add legend, remove labels and adjust y-axis
     plt.legend(loc='lower left', labels=['3y rolling correlation'])

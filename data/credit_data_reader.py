@@ -4,7 +4,7 @@ import pandas as pd
 def credit_data_reader():
 
     # fetch data from csv file
-    df = pd.read_csv('./data/credit_data.csv', delimiter=';', decimal=',')
+    df = pd.read_csv('./data/credit_data_updated.csv', delimiter=';')
 
     # keep only the columns needed
     df = df[['name', 'bloomberg', 'date', 'last_price', 'yield']]

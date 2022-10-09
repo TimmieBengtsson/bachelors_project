@@ -16,14 +16,14 @@ def histogram_plot(series1):
     returns = series1['last_price'].pct_change(periods=1)
     returns = pd.DataFrame(returns)
     returns['date'] = series1['date']
-    # returns = returns[returns['date'] > '1999-01-01']
-    # returns = returns[returns['date'] < '1997-06-29']
+    # returns = returns[returns['date'] > '19990101']
+    returns = returns[returns['date'] <= '20220831']
 
     returns = returns.rename(columns={'last_price': 'return'})
     # returns['log(return)'] = np.log(returns['return'])
 
     title1 = str(series1.iloc[0]['name']) + ' weekly returns, ' + str(returns.iloc[0]
-                                                                      ['date'])[0:10] + ' to ' + str(series1.iloc[len(series1)-1]['date'])[0:10]
+                                                                      ['date'])[0:10] + ' to ' + str(returns.iloc[len(returns)-1]['date'])[0:10]
 
     fig, axs = plt.subplots(1, 1)
     sns.histplot(returns, x="return",
