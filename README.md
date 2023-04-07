@@ -1,6 +1,6 @@
 ### bachelors_project
 
-Project repository for a bachelors thesis in economics at Lund University. 
+Project repository for a bachelors thesis in economics at Lund University, School of Economics and Management.
 
 Finished thesis: https://lup.lub.lu.se/student-papers/search/publication/9101728
 
